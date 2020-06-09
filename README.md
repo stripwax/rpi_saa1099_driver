@@ -13,22 +13,22 @@ Pin mappings
 
 | SAA PIN | RPI PIN (BCM) | RPI PIN (BOARD) |
 |---------|---------------|-----------------|
-|1  !WR   | GPIO 1        |  8              |
-|2  !CS   | GPIO 3        |  5              |
-|3  A0    | GPIO 2        |  3              |
-|4  OUTR  | -             |                 |
-|5  OUTL  | -             |                 |
-|6  Iref  | -             |                 |
-|7  !DTACK| nc            |                 |
-|8  CLK   | GPIO 4        |  7              |
-|9  Vss   | -             |                 |
-|10 D0    | GPIO 1 / ID_SC|         | 28              |
-|11 D1    | GPIO 7        | 26              |
-|12 D2    | GPIO 8        | 24              |
-|13 D3    | GPIO 25       | 22              |
-|14 D4    | GPIO 24       | 18              |
-|15 D5    | GPIO 23       | 16              |
-|16 D6    | GPIO 18       | 12              |
-|17 D7    | GPIO 15       | 19              |
-|18 Vdd   | -             |                 |
+|1  !WR   |GPIO 14 / TXD0 |  8              |
+|2  !CS   |GPIO 3 / SCL1  |  5              |
+|3  A0    |GPIO 2 / SDA1  |  3              |
+|4  OUTR  |-              |                 |
+|5  OUTL  |-              |                 |
+|6  Iref  |-              |                 |
+|7  !DTACK|nc             |                 |
+|8  CLK   |GPIO 4 / GPCLK0|  7              |
+|9  Vss   |-              |                 |
+|10 D0    |GPIO 1 / ID_SC | 28              |
+|11 D1    |GPIO 7 / SPICE1| 26              |
+|12 D2    |GPIO 8 / SPICE0| 24              |
+|13 D3    |GPIO 25        | 22              |
+|14 D4    |GPIO 24        | 18              |
+|15 D5    |GPIO 23        | 16              |
+|16 D6    |GPIO 18        | 12              |
+|17 D7    |GPIO 15 / RXD0 | 19              |
+|18 Vdd   |-              |                 |
  
