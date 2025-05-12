@@ -5,6 +5,8 @@ DO_CLK = True
 
 PIN_CLK = 4
 
+HZ = 8000000
+
 def init():
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(PIN_CLK, GPIO.OUT, initial=GPIO.LOW)
@@ -12,11 +14,9 @@ def init():
 
 def clk():
     GPIO.output(PIN_CLK, True)
-    sleep(1/1600)
-#    sleep(100/1e6)
+    sleep(1/HZ/2)
     GPIO.output(PIN_CLK, False)
-    sleep(1/1600)
-#    sleep(100/1e6)
+    sleep(1/HZ/2)
 
 if __name__=='__main__':
     import signal
