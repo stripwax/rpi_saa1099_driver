@@ -1,6 +1,8 @@
 from RPi import GPIO
 from time import sleep
-from saa1099_lib import init, sound, reset_sound
+from random import randint
+from saa1099_lib import sound, init, reset_sound
+
 
 if __name__=='__main__':
     import signal
@@ -22,9 +24,13 @@ if __name__=='__main__':
 
     init()
     reset_sound()
+    sound(28,1)
 
     while(True):
-        regval=input('reg,val ')
-        reg,value = (int(x) for x in regval.split(','))
-        sound(int(reg), int(value))
-        print('%d => %d'%(reg, value))
+#        sound(randint(0,31),randint(0,255))
+        sound(randint(0,255),randint(0,255))
+#        [sound(x,240) for x in range(0,6)]
+        sound(28,1)
+        sound(31,1)
+        sleep(0.01)
+
