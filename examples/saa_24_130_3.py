@@ -25,17 +25,14 @@ if __name__=='__main__':
     init()
     reset_sound()
     sound(28,1)
-    sound(20,4)
-    sound(17,255)
-    sound(10,255)
-    sound(28,3)
-    sound(28,1)
-    for v in range(0,16):
-        print(f'Amplitude {v}')
-        sound(2,v*17)
-        for i in range(4):
-            sound(24,0b10100010)
-            time.sleep(.5)
-            sound(24,0b10110010)
-            time.sleep(.5)
+    while True:
+        sound(24,0b10000010)
+        print('24=130')
+        for i in range(16):
+            for v in range(0,16):
+                sound(2,v*17)
+        print('24=146')
+        for i in range(16):
+            for v in range(0,16):
+                sound(2,v*17)
 

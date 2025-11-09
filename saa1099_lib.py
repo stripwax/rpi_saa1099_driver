@@ -3,7 +3,6 @@ from time import sleep
 
 DO_CLK = False
 CLK_HZ = 8000000
-#CLK_HZ = 4000
 ticks = 0
 
 PIN_a0 = 2
@@ -49,14 +48,16 @@ def init():
 
 
 def set_clock(clock):
-    if clock is None:
-        # use external clock
-        DO_CLK = False
-        CLK_HZ = None
-    else:
-        DO_CLK = True
-        CLK_HZ = clock
-        ticks = 0
+    global CLK_HZ
+    CLK_HZ = clock
+
+
+def set_manual_clock(manual):
+    global DO_CLK
+    DO_CLK = manual
+    if DO_CLK:
+        GPIO.setup(PIN_CLK, GPIO.OUT, initial=GPIO.LOW)
+        GPIO.output(PIN_CLK, 0)
 
 
 def set_reg(reg):
@@ -135,20 +136,20 @@ def reset_sound():
 
 
 def clk():
+    global ticks
     if DO_CLK:
         if CLK_HZ == 0:
-            global ticks
             # manual clock
             GPIO.output(PIN_CLK, True)
             input('tick %d'%(ticks))
             GPIO.output(PIN_CLK, False)
             input('tock %d'%(ticks))
-            ticks += 1
         else:
             GPIO.output(PIN_CLK, True)
             sleep(0.5/CLK_HZ)
             GPIO.output(PIN_CLK, False)
             sleep(0.5/CLK_HZ)
+        ticks += 1
     else:
         sleep(1/CLK_HZ)
 

@@ -1,7 +1,7 @@
 from RPi import GPIO
 import time
 from random import randint
-from saa1099_lib import sound, init, reset_sound, set_reg, set_value
+from saa1099_lib import sound, init, reset_sound
 
 
 if __name__=='__main__':
@@ -24,18 +24,23 @@ if __name__=='__main__':
 
     init()
     reset_sound()
-    sound(28,1)
-    sound(20,4)
+    sound(28,2)
+    sound(20,63)
+    sound(16,255)
     sound(17,255)
+    sound(18,255)
+    sound(8,255)
+    sound(9,255)
     sound(10,255)
-    sound(28,3)
+    sound(11,255)
+    sound(12,255)
+    sound(13,255)
     sound(28,1)
-    for v in range(0,16):
-        print(f'Amplitude {v}')
-        sound(2,v*17)
-        for i in range(4):
-            sound(24,0b10100010)
-            time.sleep(.5)
-            sound(24,0b10110010)
-            time.sleep(.5)
+
+    while(True):
+        for i in range(16):
+            for j in range(6):
+                sound(j,i*17)
+#            time.sleep(0.5)
+            input('key')
 
